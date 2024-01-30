@@ -1,12 +1,18 @@
+# intuition - if there is an overlap among two consecutive jobs, then the job with lesser earning of the two will be eliminated.
+# if the two earnings are equal, the job with an earlier end time will be eliminated.
+# the jobs and earnings remaining after lokesh is done choosing, will be the difference of the original list and the new list hence formed.
+
+
 def lokesh(n, j):
 
     lis = j[:]
-    j.sort(key = lambda x: x[1])
+    j.sort(key = lambda x: x[1])   # sorting the list according to their end times
     i = 0
 
+    # iterating through the list, 2 jobs at a time
     while i < len(j) - 1:
-        if j[i][1] > j[i+1][0]:
-            if j[i][2] > j[i+1][2]:
+        if j[i][1] > j[i+1][0]:      # checking if there is an overlap
+            if j[i][2] > j[i+1][2]:  # removing the job with lesser earning
                 j.pop(i+1)
             elif j[i][2] < j[i+1][2]:
                 j.pop(i)
@@ -15,8 +21,8 @@ def lokesh(n, j):
         else:
             i += 1
     
-    totalsum = 0
-    tempsum = 0
+    totalsum = 0   # this variable contains the total amount of earnings available originally
+    tempsum = 0    # this variable contains the total amount of earnings taken by lokesh
     for x in lis:
         totalsum += x[2]
     
