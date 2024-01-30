@@ -27,13 +27,25 @@ def lokesh(n, j):
 
 
 n = int(input("Please enter number of jobs:"))
+if n >= 100:
+    print("Can only input less than 100 jobs")
+    n = int(input())
+
 jobs_list = []
 
 for _ in range(n):
     print("Enter Start Time")
     start_time = int(input())
+    if start_time > 2359:
+        print("Please enter a valid start time. Must be only between 00:00 and 23:59")
+        start_time = int(input("Enter valid start time"))
+
     print("Enter End Time")
     end_time = int(input())
+    if end_time > 2359:
+        print("Please enter a valid end_time. Must be only between 00:00 and 23:59")
+        end_time = int(input("Enter valid end time"))
+        
     print("Enter earning")
     earning = int(input())
 
