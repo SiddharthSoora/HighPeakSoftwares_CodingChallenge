@@ -1,4 +1,4 @@
-def lokesh(j):
+def lokesh(n, j):
 
     lis = j[:]
     j.sort(key = lambda x: x[1])
@@ -25,26 +25,45 @@ def lokesh(j):
     
     return [len(lis) - len(j), totalsum - tempsum]
 
-testcase1 = [[900 ,1030, 100], [1000, 1200, 500], [1100, 1200, 300]]
-testcase2 = [[900, 1000, 250], [945, 1200, 550], [1130, 1500, 150]]
-testcase3 = [[900, 1030, 100], [1000, 1200, 100], [1100, 1200, 100]]
 
-result1 = lokesh(testcase1)
-result2 = lokesh(testcase2)
-result3 = lokesh(testcase3)
+n = int(input("Please enter number of jobs:"))
+jobs_list = []
+
+for _ in range(n):
+    print("Enter Start Time")
+    start_time = int(input())
+    print("Enter End Time")
+    end_time = int(input())
+    print("Enter earning")
+    earning = int(input())
+
+    jobs_list.append([start_time, end_time, earning])
+
+result = lokesh(n, jobs_list)
+print(result)
 
 
-if result1 == [2, 400]:
-    print("Test Case Passed")
-else:
-    print("Test Case Failed")
 
-if result2 == [2, 400]:
-    print("Test Case Passed")
-else:
-    print("Test Case Failed")
 
-if result3 == [1, 100]:
-    print("Test Case Passed")
-else:
-    print("Test Case Failed")
+# testcase1 = [[900 ,1030, 100], [1000, 1200, 500], [1100, 1200, 300]]
+# testcase2 = [[900, 1000, 250], [945, 1200, 550], [1130, 1500, 150]]
+# testcase3 = [[900, 1030, 100], [1000, 1200, 100], [1100, 1200, 100]]
+
+# result1 = lokesh(testcase1)
+# result2 = lokesh(testcase2)
+# result3 = lokesh(testcase3)
+
+# if result1 == [2, 400]:
+#     print("Test Case Passed")
+# else:
+#     print("Test Case Failed")
+
+# if result2 == [2, 400]:
+#     print("Test Case Passed")
+# else:
+#     print("Test Case Failed")
+
+# if result3 == [1, 100]:
+#     print("Test Case Passed")
+# else:
+#     print("Test Case Failed")
